@@ -25,9 +25,9 @@
                         <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
                     </div>
 
-                    <div class="col-12 text-end">
+                    {{-- <div class="col-12 text-end">
                         <a href="/forgot-password" class="text-muted">Forgotten your username or password?</a>
-                    </div>
+                    </div> --}}
 
                     <div class="col-12 text-center">
                         <button type="submit" class="btn btn-success w-100">Log in</button>

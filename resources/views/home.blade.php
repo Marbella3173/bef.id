@@ -13,10 +13,55 @@
     </div>
 </section>
 
-<!-- Second Section -->
+<!-- Second Section with Image Carousel -->
 <section id="info-section" class="second-section py-5" style="background-color: #FFDD94;">
     <div class="container">
-        <div class="row">
+        <!-- Image Carousel -->
+        <div id="carouselExample" class="carousel slide mb-4" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First Carousel Item (3 images per item) -->
+                <div class="carousel-item active">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="/assets/carousel 1.jpg" class="d-block w-100 carousel-img" alt="First Image">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="/assets/carousel 2.png" class="d-block w-100 carousel-img" alt="Second Image">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="/assets/carousel 3.png" class="d-block w-100 carousel-img" alt="Third Image">
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Carousel Item (3 images per item) -->
+                <div class="carousel-item">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="/assets/carousel 4.png" class="d-block w-100 carousel-img" alt="Fourth Image">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="/assets/carousel 5.jpg" class="d-block w-100 carousel-img" alt="Fifth Image">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="/assets/carousel 6.png" class="d-block w-100 carousel-img" alt="Sixth Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Static Text Below the Carousel -->
+        <div class="row text-center">
             <div class="col-md-4">
                 <h3 class="font-weight-bold">TENTANG KAMI</h3>
                 <p>BEF.ID merupakan kursus yang memiliki visi misi mencerdaskan dan membantu para murid mencapai mimpinya serta meraih cita-cita masuk ke perguruan tinggi yang mereka inginkan.</p>
@@ -33,32 +78,41 @@
     </div>
 </section>
 
-<!-- Self Active Learning Section - From Image 1 -->
-<section id="self-active-learning" class="self-active-learning py-5" style="background-color: #FFFFFF;">
-    <div class="container">
-        <h3 class="text-center font-weight-bold">Self Active Learning</h3>
-        <div class="row text-center">
-            <div class="col-md-3">
-                <img src="/path/to/first-image.png" alt="Lembar Kerja" class="img-fluid">
-                <p>BEF.ID akan menyediakan lembar kerja untuk waktu tertentu dan membuat janji dengan orang tua agar soal dapat diserahkan melalui jasa pengiriman</p>
+<!-- Self Active Learning Section -->
+<section id="self-active-learning" class="self-active-learning" style="background-color: #FFFFFF;">
+    <div class="container-fluid d-flex align-items-center" style="min-height: 100vh; margin: 0; padding-left: 0; padding-top: 0;">
+        <div class="row no-gutters w-100">
+            <!-- Left Side Image -->
+            <div class="col-md-4 d-flex align-items-center justify-content-center" style="padding-right: 20px;">
+                <img src="/assets/learning.png" alt="Background Image" class="img-fluid" style="opacity: 0.5; width: 100%; height: 100vh; object-fit: cover;">
             </div>
-            <div class="col-md-3">
-                <img src="/path/to/second-image.png" alt="Lembar Kerja Mandiri" class="img-fluid">
-                <p>Lembar kerja akan dilakukan secara mandiri oleh siswa di rumah masing-masing sehingga orang tua dapat memantau secara langsung</p>
-            </div>
-            <div class="col-md-3">
-                <img src="/path/to/third-image.png" alt="Tenggat Waktu" class="img-fluid">
-                <p>Setiap lembar kerja memiliki tenggat waktunya masing-masing yang harus dikumpulkan lewat website BEF.ID supaya guru dapat memeriksa serta mengoreksi pekerjaan siswa</p>
-            </div>
-            <div class="col-md-3">
-                <img src="/path/to/fourth-image.png" alt="Pembelajaran Online" class="img-fluid">
-                <p>Siswa akan melakukan pembelajaran online seminggu sekali untuk melakukan pembahasan materi yang bersangkutan dengan lembar kerja</p>
+            <!-- Right Side Content -->
+            <div class="col-md-8 d-flex flex-column justify-content-center">
+                <h3 class="text-center font-weight-bold">Self Active Learning</h3>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <img src="/assets/learning 1.jpg" alt="Lembar Kerja" class="img-fluid d-block w-100 carousel-img">
+                        <p>BEF.ID akan menyediakan lembar kerja untuk waktu tertentu dan membuat janji dengan orang tua agar soal dapat diserahkan melalui jasa pengiriman</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="/assets/learning 2.png" alt="Lembar Kerja Mandiri" class="img-fluid d-block w-100 carousel-img">
+                        <p>Lembar kerja akan dilakukan secara mandiri oleh siswa di rumah masing-masing sehingga orang tua dapat memantau secara langsung</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="/assets/learning 3.jpg" alt="Tenggat Waktu" class="img-fluid d-block w-100 carousel-img">
+                        <p>Setiap lembar kerja memiliki tenggat waktunya masing-masing yang harus dikumpulkan lewat website BEF.ID supaya guru dapat memeriksa serta mengoreksi pekerjaan siswa</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="/assets/learning 4.jpg" alt="Pembelajaran Online" class="img-fluid d-block w-100 carousel-img">
+                        <p>Siswa akan melakukan pembelajaran online seminggu sekali untuk melakukan pembahasan materi yang bersangkutan dengan lembar kerja</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Self Active Learning Section - From Image 2 -->
+<!-- Self Active Learning Price -->
 <section id="self-active-learning-promo" class="self-active-learning-promo py-5" style="background-color: #FFDD94;">
     <div class="container text-center">
         <h3 class="font-weight-bold">Self Active Learning</h3>
@@ -73,7 +127,7 @@
                 <li>Website</li>
                 <li>Pembelajaran Online</li>
             </ul>
-            <a href="/register" class="btn btn-primary">Daftar Sekarang</a>
+            <a href="/form-daftar" class="btn btn-primary">Daftar Sekarang</a>
         </div>
     </div>
 </section>
