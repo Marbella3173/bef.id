@@ -25,6 +25,93 @@
             padding-right: 0;
             padding-left: 0;
         }
+
+        .self-active-learning-promo {
+            background: linear-gradient(135deg, #FFA500, #FFDD94);
+            padding: 50px 0;
+        }
+
+        .price-box {
+            border: 2px solid #FF4500;
+            padding: 20px;
+            background-color: #FFF3E0;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .price-box:hover {
+            transform: scale(1.05);
+        }
+
+        .price {
+            color: #FF0000;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .best-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #FF6347;
+        }
+
+        .list li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .list i {
+            margin-right: 10px;
+            color: #FFA500;
+        }
+
+        .daftar-btn {
+            background-color: #D35400;
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .daftar-btn:hover {
+            background-color: #C0392B;
+            transform: translateY(-5px);
+        }
+
+        h2.price {
+            animation: fade-in 1.2s ease-out;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1.text-primary {
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 
     <title>BEF.ID | @yield('title')</title>
@@ -50,19 +137,20 @@
                     </li>
 
                     @auth
-                        @if (!Gate::allows('admin'))
+                        @if (Gate::allows('admin'))
                             <li class="nav-item">
-                                <a class="nav-link active" href="/search">Search Food</a>
+                                <a class="nav-link active" href="/database">Database</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="/cart">Cart</a>
+                                <a class="nav-link active" href="/calendar-admin">Calendar</a>
+                            </li>
+                        @elseif (Gate::allows('registered'))
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/calendar-student">Calendar</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link active" href="/add">Add New Food</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/manage">Manage Food</a>
+                                <a class="nav-link active" href="/form">Registration Form</a>
                             </li>
                         @endif
                     @endauth
@@ -76,11 +164,6 @@
                             Welcome, {{ auth()->user()->username }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item text-warning" href="/profile">Profile</a></li>
-                            @if (!Gate::allows('admin'))
-                                <li><a class="dropdown-item text-warning" href="/history">Transaction History</a></li>
-                            @endif
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-warning" href="/logout">Sign Out</a></li>
                         </ul>
                     </li>
@@ -120,7 +203,6 @@
                 if (idx >= totalItems - (itemsPerSlide - 1)) {
                     var it = itemsPerSlide - (totalItems - idx);
                     for (var i = 0; i < it; i++) {
-                        // append slides to end
                         if (e.direction == "left") {
                             $('.carousel-item').eq(i).appendTo('.carousel-inner');
                         } else {
