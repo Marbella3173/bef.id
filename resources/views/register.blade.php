@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-success w-100">Register</button>
+                        <button type="submit" class="btn text-light w-100" style="background-color: #38b6ff;">Register</button>
                     </div>
 
                     <div class="col-12 text-center mt-2">

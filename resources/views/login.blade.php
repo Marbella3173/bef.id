@@ -28,7 +28,7 @@
                     </div> --}}
 
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-success w-100">Log in</button>
+                        <button type="submit" class="btn text-light w-100" style="background-color: #38b6ff;">Log in</button>
                     </div>
 
                     <div class="col-12 text-center mt-2">
