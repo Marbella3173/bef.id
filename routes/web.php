@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\EventController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/class', function () {
-    return view('class');
-});
+Route::get('/class', [ScheduleController::class, 'index'])->name('class');
+Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
+Route::post('/calendar/store', [EventController::class, 'store'])->name('calendar.store');
+Route::get('/calendar/edit/{id}', [EventController::class, 'edit'])->name('calendar.edit');
+Route::post('/calendar/update/{id}', [EventController::class, 'update'])->name('calendar.update');
+Route::delete('/calendar/destroy/{id}', [EventController::class, 'destroy'])->name('calendar.destroy');

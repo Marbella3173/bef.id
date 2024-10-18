@@ -18,9 +18,11 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->date('scheduleDeadline');
+            $table->dateTime('scheduleDeadline');
             $table->string('scheduleType');
-            $table->string('scheduleSubmission')->nullable();
+            $table->string('scheduleSubmissionName')->nullable();
+            $table->string('scheduleSubmissionFilePath')->nullable();
+            $table->string('zoomLink')->nullable();
         });
     }
 

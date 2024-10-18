@@ -21,9 +21,11 @@ return new class extends Migration
             $table->timestamp('phoneNumber');
             $table->string('password');
             $table->string('address');
-            $table->string('questionTypes');
+            $table->boolean('isPendaftaranChecked')->default(false);
+            $table->boolean('isSelfActiveLearningChecked')->default(false);
+            $table->boolean('isBiayaChecked')->default(false);
             $table->string('additionalQuestion')->nullable();
-            $table->string('role');
+            $table->boolean('isAdmin');
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();

@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        .carousel-img {
-            height: 300px;
-            object-fit: cover;
-        }
-    
-        .carousel-inner .row.no-gutters {
-            margin-right: 0;
-            margin-left: 0;
-        }
-    
-        .carousel-inner .col-md-4 {
-            padding-right: 0;
-            padding-left: 0;
-        }
-    </style>
-
-    <title>BEF.ID | @yield('title')</title>
-    <link rel="icon" href="/assets/logo.png">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #38b6ff;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #38b6ff;">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="/" style="font-weight: bold">
                 <img src="/assets/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top" style="border-radius: 50%;">
@@ -49,7 +16,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Class</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('class') }}">Class</a>
                     </li>
 
                     @auth
@@ -101,39 +68,3 @@
             </div>
         </div>
     </nav>
-
-    <div>
-        @yield('content')
-    </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#carouselExample').on('slide.bs.carousel', function (e) {
-                var $e = $(e.relatedTarget);
-                var idx = $e.index();
-                var itemsPerSlide = 3;
-                var totalItems = $('.carousel-item').length;
-    
-                if (idx >= totalItems - (itemsPerSlide - 1)) {
-                    var it = itemsPerSlide - (totalItems - idx);
-                    for (var i = 0; i < it; i++) {
-                        // append slides to end
-                        if (e.direction == "left") {
-                            $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                        } else {
-                            $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-
-</body>
-</html>
