@@ -3,75 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Schedule;
+use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     */
     public function index()
     {
-        return view('class');
+        $events = Schedule::all();
+        // dd($events);
+        $students = DB::table('users')->select('id', 'studentName')->where('status', '=', 'Verified')->get();
+        return view('class', ['events' => $events, 'students' => $students]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     */
     public function store(Request $request)
     {
-        //
+        $schedule = new Schedule();
+        $schedule->userID = $request->userid;
+        $schedule->scheduleName = $request->title;
+        $schedule->scheduleDeadline = $request->deadline;
+        $schedule->scheduleType = $request->type;
+        $schedule->zoomLink = $request->zoomlink;
+
+        $schedule->save();
+
+        return redirect()->route('class');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     */
     public function edit($id)
     {
-        //
+        $schedule = Schedule::find($id);
+        $studentName = DB::table('users')->select('studentName')->where('users.id', '=', $schedule->userID)->value('studentName');
+        return view('schedule-edit', ['event' => $schedule, 'studentName' => $studentName]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
     public function update(Request $request, $id)
     {
-        //
+        $schedule = Schedule::find($id);
+        $schedule->scheduleName = $request->title;
+        $schedule->scheduleDeadline = $request->deadline;
+        $schedule->scheduleType = $request->type;
+        $schedule->zoomLink = $request->zoomlink;
+
+        $schedule->save();
+
+        return redirect()->route('class');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     */
     public function destroy($id)
     {
-        //
+        Schedule::find($id)->delete();
+        return redirect()->route('class');
     }
 }

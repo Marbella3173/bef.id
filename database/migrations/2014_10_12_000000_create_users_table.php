@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('studentName');
             $table->string('parentName');
             $table->string('email')->unique();
-            $table->timestamp('phoneNumber');
+            $table->string('phoneNumber');
             $table->string('password');
             $table->string('address');
             $table->boolean('isPendaftaranChecked')->default(false);

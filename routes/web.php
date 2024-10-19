@@ -21,8 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/class', [ScheduleController::class, 'index'])->name('class');
-Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
-Route::post('/calendar/store', [EventController::class, 'store'])->name('calendar.store');
-Route::get('/calendar/edit/{id}', [EventController::class, 'edit'])->name('calendar.edit');
-Route::post('/calendar/update/{id}', [EventController::class, 'update'])->name('calendar.update');
-Route::delete('/calendar/destroy/{id}', [EventController::class, 'destroy'])->name('calendar.destroy');
+Route::post('/class/store', [ScheduleController::class, 'store'])->name('class.store');
+Route::get('/class/edit/{id}', [ScheduleController::class, 'edit'])->name('class.edit');
+Route::post('/class/update/{id}', [ScheduleController::class, 'update'])->name('class.update');
+Route::delete('/calendar/destroy/{id}', [ScheduleController::class, 'destroy'])->name('class.destroy');
+
+
