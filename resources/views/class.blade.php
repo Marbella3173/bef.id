@@ -1,5 +1,5 @@
 <x-layout title="BEF.ID | Class">
-    <div id="calendar" class="p-3" style="color: black"></div>
+    <div id="calendar" class="p-5" style="color: black"></div>
 
     <!-- Modal -->
     <div id="addEventModal" class="modal" tabindex="-1" role="dialog">
@@ -11,18 +11,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('class.store') }}" method="POST">
+                <form action="{{ route('class.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <label for="title">Student Name</label>
-                        <select class="form-control mb-3" id="userid" name="userid">
+                        <select class="form-select mb-3" id="userid" name="userid">
                             <option value="none">Student Name</option>
                             @if ($students->count() > 0)
                                 @foreach($students as $student)
                                     <option value="{{ $student->id }}">{{ $student->studentName }}</option>
                                 @endforeach
-                            @else
-                                <p>No students yet!</p>
                             @endif
                         </select>
                         <div class="form-group">
@@ -34,7 +32,7 @@
                             <input type="datetime-local" class="form-control" name="deadline" id="deadline" required>
                         </div>
                         <label for="title">Schedule Type</label>
-                        <select class="form-control mb-3" id="type" name="type">
+                        <select class="form-select mb-3" id="type" name="type">
                             <option value="none">Schedule Type</option>
                             <option value="assignment">Assignment</option>
                             <option value="exam">Exam</option>

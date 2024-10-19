@@ -25,5 +25,7 @@ Route::post('/class/store', [ScheduleController::class, 'store'])->name('class.s
 Route::get('/class/edit/{id}', [ScheduleController::class, 'edit'])->name('class.edit');
 Route::post('/class/update/{id}', [ScheduleController::class, 'update'])->name('class.update');
 Route::delete('/calendar/destroy/{id}', [ScheduleController::class, 'destroy'])->name('class.destroy');
+Route::get('/class/student', [ScheduleController::class, 'student_class'])->name('class-student');
+Route::get('/class/submit/{id}', [ScheduleController::class, 'submit'])->name('submit');
 
 
