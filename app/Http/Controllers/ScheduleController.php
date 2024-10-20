@@ -8,20 +8,29 @@ use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     public function submit($id){
         $schedule = Schedule::find($id);
-        $studentName = DB::table('users')->select('studentName')->where('users.id', '=', $schedule->userID)->value('studentName');
+        $studentName = DB::table('students')->select('studentName')->where('students.userID', '=', $schedule->userID)->value('studentName');
         return view('submit', ['schedule' => $schedule, 'studentName' => $studentName]);
-    }
-    public function student_class(){
-        $events = Schedule::all();
-        return view('student-class', ['events' => $events]);
     }
     public function index()
     {
-        $events = Schedule::all();
-        $students = DB::table('users')->select('id', 'studentName')->where('status', '=', 'Verified')->get();
-        return view('class', ['events' => $events, 'students' => $students]);
+        if(auth()->user()->status == 'Verified') {
+            $events = DB::table('schedules')->join('users', 'schedules.userID', '=', 'users.id')
+                                            ->select('schedules.id as id', 'scheduleName', 'scheduleDeadline')
+                                            ->get();
+            return view('student-class', ['events' => $events]);
+        } else {
+            $events = Schedule::all();
+            $students = DB::table('users')->join('students', 'users.id', '=', 'students.userID')
+                                                ->select('users.id', 'studentName')
+                                                ->get();
+            return view('class', ['events' => $events, 'students' => $students]);
+        }
     }
 
     public function store(Request $request)

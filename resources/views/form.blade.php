@@ -4,7 +4,16 @@
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
         <div class="col-md-8 p-5" style="background-color: rgba(255,255,255,0.9); box-shadow: 0px 0px 20px rgba(0,0,0,0.1); border-radius: 10px;">
             <h2 class="text-dark text-center mb-4">Daftarkan Dirimu Sekarang!</h2>
-            <form action="/register" method="POST">
+            @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+            <form action="{{ route('student.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3 text-dark">
@@ -26,7 +35,7 @@
 
                     <div class="col-md-6 mb-3 text-dark">
                         <label for="email" class="form-label">Email<span style="color: red">*</span></label>
-                        <input type="email" class="form-control" name="email" placeholder="Masukkan email" required>
+                        <input type="email" class="form-control" name="parent_email" placeholder="Masukkan email" required>
                     </div>
                 </div>
 

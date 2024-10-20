@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('studentName');
             $table->string('parentName');
             $table->string('phoneNumber');
+            $table->string('parentEmail');
             $table->string('address');
             $table->boolean('isPendaftaranChecked')->default(false);
             $table->boolean('isSelfActiveLearningChecked')->default(false);

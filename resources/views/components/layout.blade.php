@@ -7,6 +7,7 @@
     <title>{{ $title }}</title>
         <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 
 </head>
@@ -26,6 +27,8 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
     @stack('scripts')
 </body>
