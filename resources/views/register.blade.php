@@ -1,8 +1,5 @@
-@extends('guest')
+<x-layout title="Register">
 
-@section('title', 'Login')
-
-@section('content')
 <section class="form-section" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/background-home.png'); background-size: cover; background-position: center; height: auto;">
     <div class="container-fluid d-flex align-items-center justify-content-center vh-100">
         <div class="position-relative w-100" style="max-width: 400px;">
@@ -45,4 +42,5 @@
         </div>
     </div>
 </section>
-@endsection
+
+</x-layout>

@@ -1,8 +1,4 @@
-@extends('navbar')
-
-@section('title', 'Registration Form')
-
-@section('content')
+<x-layout title="Registration Form">
 
 <section class="form-section" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/background-home.png'); background-size: cover; background-position: center; height: auto; padding-top: 50px; padding-bottom: 50px;">
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
@@ -46,22 +42,22 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="questions[]" value="Pendaftaran" id="registration">
+                                <input class="form-check-input" type="checkbox" name="pendaftaran" value="Pendaftaran" id="registration">
                                 <label class="form-check-label" for="registration">Pendaftaran</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="questions[]" value="Self Active Learning" id="self_active_learning">
+                                <input class="form-check-input" type="checkbox" name="self_active_learning" value="Self Active Learning" id="self_active_learning">
                                 <label class="form-check-label" for="self_active_learning">Self Active Learning</label>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="questions[]" value="Biaya-biaya" id="fees">
+                                <input class="form-check-input" type="checkbox" name="biaya" value="Biaya-biaya" id="fees">
                                 <label class="form-check-label" for="fees">Biaya-biaya</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="questions[]" value="Lainnya" id="other">
+                                <input class="form-check-input" type="checkbox" name="lainnya" value="Lainnya" id="other">
                                 <label class="form-check-label" for="other">Lainnya, tuliskan:</label>
                                 <input type="text" class="form-control mt-2" name="other_question" placeholder="Lainnya, tuliskan...">
                             </div>
@@ -77,4 +73,4 @@
     </div>
 </section>
 
-@endsection
+</x-layout>

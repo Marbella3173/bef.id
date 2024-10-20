@@ -15,17 +15,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('studentName');
-            $table->string('parentName');
             $table->string('email')->unique();
-            $table->string('phoneNumber');
             $table->string('password');
-            $table->string('address');
-            $table->boolean('isPendaftaranChecked')->default(false);
-            $table->boolean('isSelfActiveLearningChecked')->default(false);
-            $table->boolean('isBiayaChecked')->default(false);
-            $table->string('additionalQuestion')->nullable();
-            $table->boolean('isAdmin');
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();
