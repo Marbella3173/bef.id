@@ -1,0 +1,36 @@
+.fc .fc-col-header-cell-cushion {
+    color: black !important;
+    text-decoration: none;
+}
+
+.fc .fc-daygrid-day-number {
+    color: black !important;
+    text-decoration: none;
+}
+
+#scheduleUpdateButton{
+    background-color: #38b6ff;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    border: 0px;
+    font-weight: bold;
+}
+
+#scheduleUpdateButton:hover{
+    background-color: #2e94cf;
+}
+
+#scheduleDeleteButton{
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    border: 0px;
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+#scheduleDeleteButton:hover{
+    background-color: rgb(174, 0, 0);
+}
