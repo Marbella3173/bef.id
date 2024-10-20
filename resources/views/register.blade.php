@@ -3,12 +3,10 @@
 @section('title', 'Login')
 
 @section('content')
-
-    <div class="container-fluid d-flex align-items-center justify-content-center vh-100" style="background-color: #38b6ff;">
+<section class="form-section" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/background-home.png'); background-size: cover; background-position: center; height: auto;">
+    <div class="container-fluid d-flex align-items-center justify-content-center vh-100">
         <div class="position-relative w-100" style="max-width: 400px;">
-            <!-- Login Form inside the white box -->
             <div class="bg-white p-4 rounded shadow">
-                <!-- Logo at the top of the box -->
                 <div class="text-center mb-3"> 
                     <img src="/assets/logo.png" class="rounded-circle" alt="logo" style="width: 100px; height: 100px; background-color: white; border: 2px solid black;">
                 </div>
@@ -36,7 +34,7 @@
                     </div>
 
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-success w-100">Register</button>
+                        <button type="submit" class="btn text-light w-100" style="background-color: #38b6ff;">Register</button>
                     </div>
 
                     <div class="col-12 text-center mt-2">
@@ -46,5 +44,5 @@
             </div>
         </div>
     </div>
-
+</section>
 @endsection

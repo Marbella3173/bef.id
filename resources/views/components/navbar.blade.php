@@ -20,19 +20,20 @@
                     </li>
 
                     @auth
-                        @if (!Gate::allows('admin'))
+                        @if (Gate::allows('admin'))
                             <li class="nav-item">
-                                <a class="nav-link active" href="/search">Search Food</a>
+                                <a class="nav-link active" href="/database">Database</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="/cart">Cart</a>
+                                <a class="nav-link active" href="/calendar-admin">Calendar</a>
+                            </li>
+                        @elseif (Gate::allows('registered'))
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/calendar-student">Calendar</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link active" href="/add">Add New Food</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/manage">Manage Food</a>
+                                <a class="nav-link active" href="/form">Registration Form</a>
                             </li>
                         @endif
                     @endauth
@@ -46,11 +47,6 @@
                             Welcome, {{ auth()->user()->username }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item text-warning" href="/profile">Profile</a></li>
-                            @if (!Gate::allows('admin'))
-                                <li><a class="dropdown-item text-warning" href="/history">Transaction History</a></li>
-                            @endif
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-warning" href="/logout">Sign Out</a></li>
                         </ul>
                     </li>
@@ -67,4 +63,4 @@
                 </ul>
             </div>
         </div>
-    </nav>
+</nav>
