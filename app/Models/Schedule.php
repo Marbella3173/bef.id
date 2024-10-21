@@ -18,9 +18,8 @@ class Schedule extends Model
         'scheduleName',
         'scheduleDeadline',
         'scheduleType',
+        'scheduleSubmissionName',
         'zoomLink',
-        'updated_at',
-        'created_at'
     ];
 
     public function user()
