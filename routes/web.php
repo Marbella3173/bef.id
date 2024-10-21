@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScheduleController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+// use App\Http\Controllers\LoginController;
+// use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +20,19 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
+Auth::routes();
+Route::get('login', [LoginController::class, 'showUserLoginForm'])->name('login');
+// // Route::get('register', [RegisterController::class, 'showUserRegisterForm'])->name('register.index');
+Route::post('login/auth', [LoginController::class, 'userLogin'])->name('login.auth');
+
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/form', function(){
     return view('form');
-});
+})->name('form');
+Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 
 Route::get('/class', [ScheduleController::class, 'index'])->name('class');
 Route::post('/class/store', [ScheduleController::class, 'store'])->name('class.store');
@@ -33,8 +43,10 @@ Route::get('/class/student', [ScheduleController::class, 'student_class'])->name
 Route::get('/class/submit/{id}', [ScheduleController::class, 'submit'])->name('submit');
 
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
+// Route::get('/login', [LoginController::class, 'index'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);
+// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::get('/register', [RegisterController::class, 'index'])->name('register');
+// Route::post('/register', [RegisterController::class, 'register']);
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

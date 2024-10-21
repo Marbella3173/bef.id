@@ -32,11 +32,12 @@
             <input type="text" class="form-control" name="zoomlink" id="zoomlink" value="{{ $event->zoomLink }}">
         </div>
 
-        <a href="{{ asset('storage/submissions/' . $event->scheduleSubmissionName) }}" download="{{ $event->scheduleSubmissionName }}">
-            Download submission file
-        </a>
-
         <button type="submit" id="scheduleUpdateButton">Update Schedule</button>
+        <button id="downloadFileButton">
+            <a href="{{ asset('storage/submissions/' . $event->scheduleSubmissionName) }}" download="{{ $event->scheduleSubmissionName }}" style="text-decoration: none; color: white">
+                Download submission file
+            </a>
+        </button>
     </form>
     
     <form action="{{ route('class.destroy', $event->id) }}" method="POST">
