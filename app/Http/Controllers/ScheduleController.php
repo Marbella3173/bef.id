@@ -14,21 +14,24 @@ class ScheduleController extends Controller
     }
     public function submit($id){
         $schedule = Schedule::find($id);
-        $studentName = DB::table('students')->select('studentName')->where('students.id', '=', $schedule->userID)->value('studentName');
+        $studentName = DB::table('users')->join('students', 'users.id', '=', 'students.userID')
+                                                ->select('studentName')
+                                                ->where('students.userID', '=', $schedule->userID)
+                                                ->value('studentName');
         return view('submit', ['schedule' => $schedule, 'studentName' => $studentName]);
     }
     public function index()
     {
         if(auth()->user()->status == 'Verified') {
             $user_id = auth()->id();
-            $events = DB::table('schedules')->select('schedules.id as id', 'scheduleName', 'scheduleDeadline')
+            $events = DB::table('schedules')->select('schedules.id as id', 'scheduleName', 'scheduleDeadline', 'scheduleType')
                                                 ->where('schedules.userID', '=', $user_id)
                                                 ->get();
             return view('student-class', ['events' => $events]);
         } else {
             $events = Schedule::all();
             $students = DB::table('users')->join('students', 'users.id', '=', 'students.userID')
-                                                ->select('students.id as id', 'studentName')
+                                                ->select('users.id as id', 'studentName')
                                                 ->where('users.status', '=', 'Verified')
                                                 ->get();
             return view('class', ['events' => $events, 'students' => $students]);

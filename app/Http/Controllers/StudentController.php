@@ -9,7 +9,7 @@ class StudentController extends Controller
 {
     public function store(Request $request){
         $userID = auth()->id();
-        // dd($userID);
+
         $request->validate([
             'student_name' => 'required|string',
             'parent_name' => 'required|string',

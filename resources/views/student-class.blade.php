@@ -59,19 +59,12 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 dayMaxEvents: true,
-                eventColor: 'red',
-                textColor: 'black',
-                dateClick: function(info) {
-                    $('#start').val(info.dateStr + 'T00:00');
-                    $('#end').val(info.dateStr + 'T00:00');
-                    $('#addEventModal').modal('show');
-                },
                 events: [
                     @foreach($events as $event)
                     {
                         title: '{{ $event->scheduleName }}',
                         start: '{{ $event->scheduleDeadline }}',
-                        url: '{{ route('class.edit', $event->id) }}',
+                        url: '{{ route('submit', $event->id) }}',
                         backgroundColor: function() {
                             // Color logic based on schedule type
                             switch ('{{ $event->scheduleType }}') {
