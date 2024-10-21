@@ -59,6 +59,7 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
+                dayMaxEvents: true,
                 eventColor: 'red',
                 textColor: 'black',
                 dateClick: function(info) {
@@ -72,8 +73,32 @@
                         title: '{{ $event->scheduleName }}',
                         start: '{{ $event->scheduleDeadline }}',
                         url: '{{ route('class.edit', $event->id) }}',
-                        backgroundColor: '#3788d8',
-                        borderColor: '#3788d8',
+                        backgroundColor: function() {
+                            // Color logic based on schedule type
+                            switch ('{{ $event->scheduleType }}') {
+                                case 'assignment':
+                                    return '#38b6ff'; // Example color for assignment
+                                case 'exam':
+                                    return '#ff0000'; // Example color for exam
+                                case 'zoomMeeting':
+                                    return '#9933ff'; // Example color for Zoom meeting
+                                default:
+                                    return '#38b6ff'; // Default color
+                            }
+                        }(),
+                        borderColor: function() {
+                            // Color logic based on schedule type
+                            switch ('{{ $event->scheduleType }}') {
+                                case 'assignment':
+                                    return '#38b6ff'; // default
+                                case 'exam':
+                                    return '#ff0000'; // merah
+                                case 'zoomMeeting':
+                                    return '#9933ff'; // ungu
+                                default:
+                                    return '#38b6ff'; // Default color
+                            }
+                        }(),
                         display: 'block',
                         textColor: 'white'   
                     },

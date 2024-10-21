@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #38b6ff;">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #38b6ff;">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="/" style="font-weight: bold">
                 <img src="/assets/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top" style="border-radius: 50%;">

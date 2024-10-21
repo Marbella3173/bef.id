@@ -137,3 +137,29 @@ h1.text-primary {
 #scheduleDeleteButton:hover{
     background-color: rgb(174, 0, 0);
 }
+
+.fc-button.fc-prev-button, .fc-button.fc-next-button {
+    background-color: #38b6ff;
+    border-color: #38b6ff;
+    color: white;
+}
+
+.fc-button.fc-prev-button:hover, .fc-button.fc-next-button:hover {
+    background-color: #2d8cbf;
+    border-color: #2d8cbf;
+}
+
+.fc-day-today {
+    background-color: #eeeeee !important;
+}
+
+.fc-event-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fc-daygrid-day {
+    height: 100px;
+    max-height: 100px;
+}
