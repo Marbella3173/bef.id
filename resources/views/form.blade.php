@@ -13,7 +13,7 @@
                             </ul>
                         </div>
                     @endif
-            <form action="{{ route('student.store') }}" method="POST">
+            <form id="registrationForm" action="{{ route('student.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3 text-dark">
@@ -75,11 +75,76 @@
                 </div>
 
                 <div class="col-12 text-center mb-4">
-                    <button type="submit" class="btn text-light" style="width: 200px; margin-top: 10px; background-color: #38b6ff;">Submit</button>
+                    <button type="submit" id="submitBtn" class="btn text-light" style="width: 200px; margin-top: 10px; background-color: #38b6ff;">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Cegah submit form secara standar
+
+    // Ambil data dari form
+    const formData = new FormData(this);
+    
+    // Ambil pertanyaan yang dipilih
+    const questions = [];
+    if (formData.get('pendaftaran')) {
+        questions.push('Pendaftaran');
+    }
+    if (formData.get('self_active_learning')) {
+        questions.push('Self Active Learning');
+    }
+    if (formData.get('biaya')) {
+        questions.push('Biaya-biaya');
+    }
+    if (formData.get('lainnya')) {
+        const otherQuestion = formData.get('other_question');
+        if (otherQuestion) {
+            questions.push(`Lainnya: ${otherQuestion}`);
+        }
+    }
+
+    // Gabungkan semua pertanyaan menjadi satu string
+    const questionList = questions.length > 0 ? questions.join(', ') : 'Tidak ada pertanyaan yang dipilih';
+
+    // Ambil data lain dari form
+    const studentName = formData.get('student_name');
+    const parentName = formData.get('parent_name');
+    const phoneNumber = formData.get('phone_number');
+    const email = formData.get('parent_email');
+    const address = formData.get('address');
+    const whatsappNumber = '6289514195467'; // Ganti dengan nomor WhatsApp tujuan
+
+    // Buat pesan untuk WhatsApp
+    const message = `Halo, saya ingin mendaftar. Berikut adalah detail saya:\n\nNama Murid: ${studentName}\nNama Orang Tua: ${parentName}\nNomor Telepon: ${phoneNumber}\nEmail: ${email}\nAlamat: ${address}\n\nPertanyaan yang diajukan: ${questionList}`;
+    
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Kirim data ke server
+    fetch('{{ route('student.store') }}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Redirect ke WhatsApp jika berhasil
+            window.location.href = whatsappURL;
+        } else {
+            alert('Gagal menyimpan data, silakan coba lagi.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan, silakan coba lagi.');
+    });
+});
+</script>
 
 </x-layout>

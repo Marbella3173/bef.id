@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::get('/form', function(){
     return view('form');
-})->name('form');
+})->name('form')->middleware('auth');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 
 Route::get('/class', [ScheduleController::class, 'index'])->name('class');

@@ -31,6 +31,7 @@ class StudentController extends Controller
             'additionalQuestion' => $request->other_question
         ]);
 
-        return redirect()->route('home');
+        // return redirect()->route('home');
+        return response()->json(['success' => true]);
     }
 }
