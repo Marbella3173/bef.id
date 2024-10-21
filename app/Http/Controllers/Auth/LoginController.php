@@ -48,22 +48,17 @@ class LoginController extends Controller
 
     public function userLogin(Request $request)
     {   
-        $credentials = $request->only('email', 'password');
-
-        // Validate the request
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Attempt to log the user in with the 'user' guard
-        if (Auth::guard('user')->attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->intended('/'); // Redirect to intended URL or homepage
+        Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+        
+        if (Auth::check()) {
+            return redirect()->route('home');
         } else {
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ]);
+            return back()->withErrors(['email' => 'Invalid credentials']);
         }
     }
 }

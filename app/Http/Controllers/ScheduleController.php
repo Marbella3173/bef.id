@@ -14,20 +14,22 @@ class ScheduleController extends Controller
     }
     public function submit($id){
         $schedule = Schedule::find($id);
-        $studentName = DB::table('students')->select('studentName')->where('students.userID', '=', $schedule->userID)->value('studentName');
+        $studentName = DB::table('students')->select('studentName')->where('students.id', '=', $schedule->userID)->value('studentName');
         return view('submit', ['schedule' => $schedule, 'studentName' => $studentName]);
     }
     public function index()
     {
         if(auth()->user()->status == 'Verified') {
-            $events = DB::table('schedules')->join('users', 'schedules.userID', '=', 'users.id')
-                                            ->select('schedules.id as id', 'scheduleName', 'scheduleDeadline')
-                                            ->get();
+            $user_id = auth()->id();
+            $events = DB::table('schedules')->select('schedules.id as id', 'scheduleName', 'scheduleDeadline')
+                                                ->where('schedules.userID', '=', $user_id)
+                                                ->get();
             return view('student-class', ['events' => $events]);
         } else {
             $events = Schedule::all();
             $students = DB::table('users')->join('students', 'users.id', '=', 'students.userID')
-                                                ->select('users.id', 'studentName')
+                                                ->select('students.id as id', 'studentName')
+                                                ->where('users.status', '=', 'Verified')
                                                 ->get();
             return view('class', ['events' => $events, 'students' => $students]);
         }
@@ -50,7 +52,7 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         $schedule = Schedule::find($id);
-        $students = DB::table('users')->select('id', 'studentName')->where('users.id', '=', $schedule->userID)->get();
+        $students = DB::table('students')->select('id', 'studentName')->where('students.id', '=', $schedule->userID)->get();
         return view('schedule-edit', ['event' => $schedule, 'students' => $students]);
     }
 
@@ -66,9 +68,9 @@ class ScheduleController extends Controller
             $extension = $request->file('submissionFile')->getClientOriginalExtension();
             $filePath = $request->input('title') . '.' . $extension;
             $request->file('submissionFile')->storeAs('public/submissions', $filePath);
-        }
 
-        $schedule->scheduleSubmissionName = $filePath;
+            $schedule->scheduleSubmissionName = $filePath;
+        }
 
         $schedule->save();
 
