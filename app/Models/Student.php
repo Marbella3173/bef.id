@@ -12,4 +12,22 @@ class Student extends Model
     protected $primaryKey = 'id';
     protected $timestamp = true;
     protected $guarded = [];
+
+    protected $fillable = [
+        'userID',
+        'studentName', 
+        'parentName', 
+        'phoneNumber', 
+        'parentEmail', 
+        'address',
+        'isPendaftaranChecked', 
+        'isSelfActiveLearningChecked', 
+        'isBiayaChecked', 
+        'additionalQuestion'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'userID');
+    }
 }

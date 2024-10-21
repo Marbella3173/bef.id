@@ -12,4 +12,19 @@ class Schedule extends Model
     protected $primaryKey = 'id';
     protected $timestamp = true;
     protected $guarded = [];
+
+    protected $fillable = [
+        'userID',
+        'scheduleName',
+        'scheduleDeadline',
+        'scheduleType',
+        'zoomLink',
+        'updated_at',
+        'created_at'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'userID');
+    }
 }

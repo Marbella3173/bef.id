@@ -13,17 +13,24 @@
                 <!-- Left-aligned menu -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active text-light" aria-current="page" href="/">Home</a>
                     </li>
 
                     @auth
-                        @if (Gate::allows('admin') || Gate::allows('verified'))
+                        @if (Gate::allows('admin'))
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('class') }}">Class</a>
+                                <a class="nav-link active text-light" aria-current="page" href="{{ route('class') }}">Class</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" aria-current="page" href="{{ route('search') }}">Student Database</a>
+                            </li>
+                        @elseif (Gate::allows('verified'))
+                            <li class="nav-item">
+                                <a class="nav-link active text-light" aria-current="page" href="{{ route('class') }}">Class</a>
                             </li>
                         @elseif (Gate::allows('registered'))
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('form') }}">Registration Form</a>
+                                <a class="nav-link active text-light" href="{{ route('form') }}">Registration Form</a>
                             </li>
                         @endif
                     @endauth
@@ -32,19 +39,10 @@
                 <!-- Right-aligned menu for authenticated and guest users -->
                 <ul class="navbar-nav ms-auto">
                     @auth
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Welcome!
-                            </a>
-                            <ul class="dropdown-menu">
-                                //
-                            </ul>
-                        </li>
-
                         <li class="nav-item">
-                            <a class="text-light" href="#" 
+                            <a class="nav-link active text-light" href="#" 
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Logout
+                                Log out
                             </a>
                             <!-- Logout form (hidden) -->
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

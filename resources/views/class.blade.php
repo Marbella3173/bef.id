@@ -4,7 +4,7 @@
     <!-- Modal -->
     <div id="addEventModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="padding: 10px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Event</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save Event</button>
+                        <button type="submit" class="btn text-light" style="background-color: #38b6ff;">Save Event</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </form>

@@ -8,7 +8,7 @@
         </div>
     </section>
 
-    <section id="info-section" class="second-section py-5" style="background-color: #FFDD94;">
+    <section id="info-section" class="second-section py-5" style="background-color: #c2e9ff;">
         <div class="container">
             <div id="carouselExample" class="carousel slide mb-4" data-ride="carousel">
                 <div class="carousel-inner">
@@ -67,7 +67,7 @@
         </div>
     </section>
 
-    <section id="self-active-learning" class="self-active-learning" style="background-color: #f6e3be;">
+    <section id="self-active-learning" class="self-active-learning" style="background-color: #dcf2ff;">
         <div class="container-fluid d-flex align-items-center" style="min-height: 100vh; margin: 0; padding-left: 0; padding-top: 0;">
             <div class="row no-gutters w-100">
                 <div class="col-md-4 d-flex align-items-center justify-content-center" style="padding-right: 20px;">
@@ -98,14 +98,14 @@
         </div>
     </section>
 
-    <section id="self-active-learning-promo" class="self-active-learning-promo py-5" style="background-color: #FFDD94;">
+    <section id="self-active-learning-promo" class="self-active-learning-promo py-5" style="background-color: #38b6ff;">
         <div class="container text-center">
-            <h3 class="font-weight-bold">Self Active Learning</h3>
-            <p class="lead">Pembelajaran terbaik bagi setiap murid</p>
+            <h3 class="font-weight-bold text-light">Self Active Learning</h3>
+            <p class="lead text-light">Pembelajaran terbaik bagi setiap murid</p>
             <div class="price-box">
-                <p><del>Rp 395.000 / Month</del></p>
-                <h2 class="font-weight-bold price">Rp 350.000 / 1 Month</h2>
-                <p class="best-price">Best Price</p>
+                <p><del>Rp395.000/month</del></p>
+                <h2 class="font-weight-bold price">Rp350.000/month</h2>
+                <p class="best-price">Best Price!</p>
                 <ul class="list text-left">
                     <li><i class="fa fa-file-alt"></i> Lembar Kerja</li>
                     <li><i class="fa fa-truck"></i> Jasa Pengiriman</li>

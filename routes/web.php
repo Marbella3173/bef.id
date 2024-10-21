@@ -7,6 +7,7 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -38,10 +39,12 @@ Route::get('/class', [ScheduleController::class, 'index'])->name('class');
 Route::post('/class/store', [ScheduleController::class, 'store'])->name('class.store');
 Route::get('/class/edit/{id}', [ScheduleController::class, 'edit'])->name('class.edit');
 Route::post('/class/update/{id}', [ScheduleController::class, 'update'])->name('class.update');
-Route::delete('/calendar/destroy/{id}', [ScheduleController::class, 'destroy'])->name('class.destroy');
+Route::delete('/class/destroy/{id}', [ScheduleController::class, 'destroy'])->name('class.destroy');
 Route::get('/class/student', [ScheduleController::class, 'student_class'])->name('class-student');
 Route::get('/class/submit/{id}', [ScheduleController::class, 'submit'])->name('submit');
 
+Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::post('/update-status', [SearchController::class, 'updateStatus'])->name('update-status');
 
 // Route::get('/login', [LoginController::class, 'index'])->name('login');
 // Route::post('/login', [LoginController::class, 'login']);
