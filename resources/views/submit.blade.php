@@ -22,7 +22,7 @@
                 <input type="file" class="form-control" name="submissionFile" id="submissionFile">
             </div>
         
-            <button type="submit" class="btn text-light" style="background-color: #38b6ff;">Submit</button>
+            <button type="submit" class="btn text-light fw-semibold" style="background-color: #38b6ff;">Submit</button>
         
     </form>
 </x-layout>
