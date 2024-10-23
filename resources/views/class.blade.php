@@ -2,12 +2,12 @@
     <div id="calendar" class="p-5" style="color: black"></div>
 
     <!-- Modal -->
-    <div id="addEventModal" class="modal" tabindex="-1" role="dialog">
+    <div id="addEventModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="padding: 10px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Event</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -34,9 +34,9 @@
                         <label for="title">Schedule Type</label>
                         <select class="form-select mb-3" id="type" name="type">
                             <option value="none">Schedule Type</option>
-                            <option value="assignment">Assignment</option>
-                            <option value="exam">Exam</option>
-                            <option value="zoomMeeting">Zoom Meeting</option>
+                            <option value="Assignment">Assignment</option>
+                            <option value="Exam">Exam</option>
+                            <option value="Zoom Meeting">Zoom Meeting</option>
                         </select>
                         <div class="form-group">
                             <label for="zoomlink">Zoom Meeting Link (if this is a meet schedule)</label>
@@ -45,13 +45,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn text-light" style="background-color: #38b6ff;">Save Event</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
     
 
     <script>

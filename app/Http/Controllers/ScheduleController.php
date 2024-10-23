@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
@@ -55,8 +56,9 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         $schedule = Schedule::find($id);
-        $students = DB::table('students')->select('id', 'studentName')->where('students.id', '=', $schedule->userID)->get();
-        return view('schedule-edit', ['event' => $schedule, 'students' => $students]);
+        $students = Student::all();
+        $currentStudent = DB::table('students')->select('students.userID', 'studentName')->where('students.userID', '=', $schedule->userID)->first();
+        return view('schedule-edit', ['event' => $schedule, 'students' => $students, 'currentStudent' => $currentStudent]);
     }
 
     public function update(Request $request, $id)

@@ -4,7 +4,7 @@
 
         <label for="title">Student Name</label>
             <select class="form-select mb-3" id="userid" name="userid">
-                <option value="none"> Student Name <i class="bi bi-caret-down-fill"></i> </option>
+                <option value="{{ $currentStudent->userID }}"> {{ $currentStudent->studentName }}<i class="bi bi-caret-down-fill"></i> </option>
                     @if ($students->count() > 0)
                         @foreach($students as $student)
                             <option value="{{ $student->id }}">{{ $student->studentName }}</option>
@@ -21,11 +21,11 @@
             <input type="datetime-local" class="form-control" name="deadline" id="deadline" value="{{ $event->scheduleDeadline }}" required>
         </div>
         <label for="title">Schedule Type</label>
-        <select class="form-select mb-3" id="type" name="type" value="{{ $event->scheduleType }}">
-            <option value="none">Schedule Type</option>
-            <option value="assignment">Assignment</option>
-            <option value="exam">Exam</option>
-            <option value="zoomMeeting">Zoom Meeting</option>
+        <select class="form-select mb-3" id="type" name="type">
+            <option value="{{ ($event->scheduleType) }}">{{ ($event->scheduleType) }}</option>
+            <option value="Assignment">Assignment</option>
+            <option value="Exam">Exam</option>
+            <option value="Zoom Meeting">Zoom Meeting</option>
         </select>
         <div class="form-group">
             <label for="zoomlink">Zoom Meeting Link (if this is a meet schedule)</label>
