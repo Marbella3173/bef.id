@@ -22,11 +22,11 @@
                         backgroundColor: function() {
                             // Color logic based on schedule type
                             switch ('{{ $event->scheduleType }}') {
-                                case 'assignment':
+                                case 'Assignment':
                                     return '#38b6ff'; // Example color for assignment
-                                case 'exam':
+                                case 'Exam':
                                     return '#ff0000'; // Example color for exam
-                                case 'zoomMeeting':
+                                case 'Zoom Meeting':
                                     return '#9933ff'; // Example color for Zoom meeting
                                 default:
                                     return '#38b6ff'; // Default color
@@ -35,11 +35,11 @@
                         borderColor: function() {
                             // Color logic based on schedule type
                             switch ('{{ $event->scheduleType }}') {
-                                case 'assignment':
+                                case 'Assignment':
                                     return '#38b6ff'; // default
-                                case 'exam':
+                                case 'Exam':
                                     return '#ff0000'; // merah
-                                case 'zoomMeeting':
+                                case 'Zoom Meeting':
                                     return '#9933ff'; // ungu
                                 default:
                                     return '#38b6ff'; // Default color
